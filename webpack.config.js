@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require("path");
 
 module.exports = {
@@ -10,8 +11,8 @@ module.exports = {
     port: 4000,
   },
   output: {
-    publicPath: "http://localhost:4000/",
-    // path: path.resolve(__dirname, 'dist'),
+    // publicPath: "http://localhost:4000/",
+    path: path.resolve(__dirname, 'dist'),
     // filename: 'my-first-webpack.bundle.js',
   },
   module: {
@@ -42,6 +43,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new BundleAnalyzerPlugin({
+        generateStatsFile: true,
     }),
   ],
 };

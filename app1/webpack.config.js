@@ -10,8 +10,8 @@ module.exports = {
     port: 3001,
   },
   output: {
-    publicPath: "http://localhost:3001/",
-    // path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
+    // publicPath: "http://localhost:3001/",
     // filename: 'my-first-webpack.bundle.js',
   },
   module: {
